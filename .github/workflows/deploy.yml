@@ -1,0 +1,42 @@
+name: Deploy to server
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install SSH key
+        run: |
+          mkdir -p ~/.ssh/
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_ed25519_deploy
+          chmod 600 ~/.ssh/id_ed25519_deploy
+
+      - name: Deploy to server
+        run: |
+          echo "Starting deployment..."
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/id_ed25519_deploy ${{ secrets.SERVER_USER }}@${{ secrets.SERVER_IP }} <<EOF
+            echo "Inside SSH session..."
+            cd /var/www/toddchristensen.net
+            echo "Changed directory to project..."
+            git pull origin main
+            echo "Pulled latest code..."
+            composer install
+            echo "Installed composer packages..."
+            npm install
+            echo "Installed npm packages..."
+            npm run build
+            echo "Built project..."
+            php artisan config:clear
+            echo "Cleared config..."
+          EOF
+        env:
+          SERVER_USER: ${{ secrets.SERVER_USER }}
+          SERVER_IP: ${{ secrets.SERVER_IP }}
