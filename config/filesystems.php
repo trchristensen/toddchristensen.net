@@ -55,6 +55,19 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
         ],
+        "spaces" => [
+            "driver" => "s3",
+            "key" => env('SPACES_ACCESS_KEY'),
+            "secret" => env('SPACES_SECRET'),
+            "region" => "sgp1",
+            "bucket" => "adopt",
+            "endpoint" => env('SPACES_ENDPOINT'),
+            "url" => env('SPACES_URL'),
+            "visibility" => "public",
+            'throw' => false,
+            'use_path_style_endpoint' => env('SPACES_USE_PATH_STYLE_ENDPOINT', false),
+            'bucket_endpoint' => true,
+        ],
 
     ],
 
