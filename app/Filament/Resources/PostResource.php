@@ -38,7 +38,7 @@ class PostResource extends Resource
                     ->maxLength(65535)
                     ->columnSpanFull(),
                 SpatieMediaLibraryFileUpload::make('featured_image')
-                    // ->disk('s3')
+                    ->disk('spaces')
                     ->collection('featured_image')
                     ->responsiveImages()
                     ->image()

@@ -47,7 +47,7 @@ class ProjectResource extends Resource
                     ])
                     ->default('pending'),
                 SpatieMediaLibraryFileUpload::make('featured_image')
-                    ->disk('public')
+                    ->disk('spaces')
                     ->collection('featured_image')
                     ->image()
                     ->responsiveImages()
