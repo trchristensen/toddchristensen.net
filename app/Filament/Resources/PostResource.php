@@ -41,6 +41,7 @@ class PostResource extends Resource
                     // ->disk('s3')
                     ->collection('featured_image')
                     ->responsiveImages()
+                    ->image()
             ]);
     }
 

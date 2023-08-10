@@ -16,10 +16,17 @@ use App\Http\Controllers\ProjectController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => []], function () {
 
-Route::get('blog', [PostController::class, 'index'])->name('post.index');
-Route::get('/blog/{post:slug}', [PostController::class, 'show'])->name('post.show');
+    header("Access-Control-Allow-Origin: *");
+    header("Access-Control-Allow-Headers: *");
 
-Route::get('projects', [ProjectController::class, 'index'])->name('project.index');
-Route::get('/projects/{project:slug}', [ProjectController::class, 'show'])->name('project.show');
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+
+    Route::get('blog', [PostController::class, 'index'])->name('post.index');
+    Route::get('blog/{post:slug}', [PostController::class, 'show'])->name('post.show');
+
+    Route::get('projects', [ProjectController::class, 'index'])->name('project.index');
+    Route::get('projects/{project:slug}', [ProjectController::class, 'show'])->name('project.show');
+
+});

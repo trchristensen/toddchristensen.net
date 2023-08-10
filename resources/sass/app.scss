@@ -56,6 +56,12 @@ select:invalid {
     display: none;
 }
 
+html,
+body {
+    overscroll-behavior-y: none;
+    overscroll-behavior: none;
+}
+
 .active-link {
     position: relative;
     text-decoration: none;

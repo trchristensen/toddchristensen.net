@@ -35,7 +35,8 @@ class ListProjects extends Component implements HasForms, HasTable
                 Stack::make([
 
                     Tables\Columns\TextColumn::make('name')
-                        ->searchable()->weight(FontWeight::SemiBold)
+                        ->searchable()
+                        ->weight(FontWeight::SemiBold)
                         ->extraAttributes([
                             'class' => 'mb-1',
                         ]),

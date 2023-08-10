@@ -6,6 +6,7 @@ use App\Filament\Resources\ProjectResource\Pages;
 use App\Filament\Resources\ProjectResource\RelationManagers;
 use App\Models\Project;
 use Filament\Forms;
+use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
@@ -45,6 +46,11 @@ class ProjectResource extends Resource
                         'cancelled' => 'Cancelled',
                     ])
                     ->default('pending'),
+                SpatieMediaLibraryFileUpload::make('featured_image')
+                    ->disk('public')
+                    ->collection('featured_image')
+                    ->image()
+                    ->responsiveImages()
             ]);
     }
 
