@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -12,17 +13,14 @@ class PostController extends Controller
     {
         $posts = DB::table('posts')->paginate(20);
 
-        return view('blog.index', [
-            'posts' => $posts
-        ]);
+        return view('blog.index');
 
     }
 
-    public function show($slug)
+    public function show(Post $post)
     {
-        $post = DB::table('posts')->where('slug', $slug)->first();
 
-        return view('post', [
+        return view('blog.show', [
             'post' => $post
         ]);
     }

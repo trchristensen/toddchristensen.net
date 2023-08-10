@@ -16,7 +16,7 @@
     </style>
 
 
-    <div class="w-full max-w-5xl mx-auto">
+    <div class="w-full max-w-3xl mx-auto">
         <section id="intro">
             <div class="p-6">
                 <h1 class="font-bold text-4xl mb-8 tracking-tighter">Heyyaaa, I'm Todd! 👋🏽</h1>

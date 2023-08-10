@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Livewire;
+namespace App\Livewire\Posts;
 
 use App\Models\Post;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
+use Filament\Support\Enums\ActionSize;
+use Filament\Tables\Actions\Action;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Columns\Layout\Split;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
@@ -30,15 +33,14 @@ class ListPosts extends Component implements HasForms, HasTable
                 // TextColumn::make('author.name')
                 //     ->label('Author')
             ])
-            ->contentGrid([
-                'md' => 2,
-                'xl' => 3,
-            ])
             ->filters([
                 // ...
             ])
             ->actions([
-                // ...
+                ViewAction::make()
+                    ->size(ActionSize::Small)
+                    ->url(fn(Post $record): string => route('post.show', $record))
+
             ])
             ->bulkActions([
                 // ...
@@ -49,6 +51,6 @@ class ListPosts extends Component implements HasForms, HasTable
 
     public function render()
     {
-        return view('livewire.list-posts');
+        return view('livewire.posts.list-posts');
     }
 }

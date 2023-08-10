@@ -3,7 +3,7 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
-
+use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,5 +17,8 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
 Route::get('blog', [PostController::class, 'index'])->name('post.index');
-Route::get('{post}', [PostController::class, 'show'])->name('post.show');
+Route::get('/blog/{post:slug}', [PostController::class, 'show'])->name('post.show');
+
+Route::get('projects', [ProjectController::class, 'index'])->name('project.index');
