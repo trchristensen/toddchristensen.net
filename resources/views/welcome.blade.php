@@ -16,27 +16,27 @@
     </style>
 
 
-    <div class="w-full max-w-3xl mx-auto pb-20">
+    <div class="w-full max-w-3xl pb-20 mx-auto">
         <section id="intro">
-            <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="grid grid-cols-1 gap-4 p-6 md:grid-cols-3">
                 <div class="md:col-span-1">
-                    <div class="w-full mt-2 rounded-xl overflow-hidden">
-                        <img src="{{ 'static/meandfam-c.jpg' }}" alt="me and the fam" />
+                    <div class="w-full mt-2 overflow-hidden rounded-xl">
+                        <img src="{{ public_route('static/meandfam-c.jpg') }}" alt="me and the fam" />
                     </div>
                 </div>
                 <div class="md:col-span-2">
-                    <h1 class="font-bold text-4xl mb-8 tracking-tighter flex gap-4 flex-wrap"><span>Yo.</span> <span>I'm Todd
+                    <h1 class="flex flex-wrap gap-4 mb-8 text-4xl font-bold tracking-tighter"><span>Yo.</span> <span>I'm Todd
                             Christensen.</span>
                         <span>👋🏽</span>
                     </h1>
-                    <p class="prose prose-neutral dark:prose-invert mb-4">Welcome to my site! I'm an unemployed (by choice)
+                    <p class="mb-4 prose prose-neutral dark:prose-invert">Welcome to my site! I'm an unemployed (by choice)
                         web
                         developer. Actually, I'm an aspring #solopreneuer. I enjoy
                         pretending I'm going to launch one of my many side projects! I've been living in the Philippines for
                         5 years where I started a family. As of Sept 2023 I am back in the Bay Area, CA. Anyway, check out
                         my stuff below!</p>
                     <ul class="list-none">
-                        <li><a class="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
+                        <li><a class="flex items-center transition-all hover:text-neutral-800 dark:hover:text-neutral-100"
                                 rel="noopener noreferrer" target="_blank" href="https://x.com/christensen_tr"><svg
                                     width="12" height="12" viewBox="0 0 12 12" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -44,7 +44,7 @@
                                         d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
                                         fill="currentColor"></path>
                                 </svg>
-                                <p class="h-7 ml-2">follow me on x</p>
+                                <p class="ml-2 h-7">follow me on x</p>
                             </a></li>
                     </ul>
                 </div>
@@ -53,8 +53,8 @@
 
         <section id="projects">
             <div class="p-6">
-                <h2 class="font-bold text-2xl mb-8 tracking-tighter">Projects</h2>
-                <p class="prose prose-neutral dark:prose-invert mb-4">I'm currently working on a few projects that I'm
+                <h2 class="mb-8 text-2xl font-bold tracking-tighter">Projects</h2>
+                <p class="mb-4 prose prose-neutral dark:prose-invert">I'm currently working on a few projects that I'm
                     excited
                     about. I'll be posting updates here as I make progress.</p>
             </div>
@@ -63,9 +63,9 @@
                 <div
                     class="grid rounded-xl overflow-hidden shadow-sm border bg-white dark:bg-gray-900  [&>*:nth-child(even)]:bg-gray-50 [&>*:nth-child(even)]:dark:bg-white/5">
                     @foreach ($projects as $project)
-                        <div class="pt-2 pb-3 px-4 border-b">
-                            <div class="flex w-full justify-between">
-                                <h3 class="font-semibold mb-2">{{ $project->name }}</h3>
+                        <div class="px-4 pt-2 pb-3 border-b">
+                            <div class="flex justify-between w-full">
+                                <h3 class="mb-2 font-semibold">{{ $project->name }}</h3>
                                 <span
                                     class="text-sm {{ $project->status === 'in_progress' ? 'italic' : '' }}">{{ $project->readable_status }}</span>
                             </div>
@@ -84,8 +84,8 @@
 
         <section id="writing">
             <div class="p-6">
-                <h2 class="font-bold text-2xl mb-8 tracking-tighter">Writing</h2>
-                <p class="prose prose-neutral dark:prose-invert mb-4">I just started a writing section to write down
+                <h2 class="mb-8 text-2xl font-bold tracking-tighter">Writing</h2>
+                <p class="mb-4 prose prose-neutral dark:prose-invert">I just started a writing section to write down
                     whatever
                     I
                     feel
@@ -96,9 +96,9 @@
                 <div
                     class="grid rounded-xl overflow-hidden shadow-sm border bg-white dark:bg-gray-900  [&>*:nth-child(even)]:bg-gray-50 [&>*:nth-child(even)]:dark:bg-white/5">
                     @foreach ($posts as $post)
-                        <div class="pt-2 pb-3 px-4 border-b">
-                            <div class="flex w-full justify-between gap-4">
-                                <h3 class="font-semibold mb-2">{{ $post->title }}</h3>
+                        <div class="px-4 pt-2 pb-3 border-b">
+                            <div class="flex justify-between w-full gap-4">
+                                <h3 class="mb-2 font-semibold">{{ $post->title }}</h3>
                                 <span class="text-sm italic"> {{ $post->created_at->diffForHumans() }}</span>
                             </div>
                             <p class="text-sm">{{ $post->excerpt }}
