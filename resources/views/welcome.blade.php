@@ -35,18 +35,20 @@
                     about. I'll be posting updates here as I make progress.</p>
             </div>
 
-            <div
-                class="grid rounded-xl overflow-hidden shadow-sm border bg-white dark:bg-gray-900  [&>*:nth-child(even)]:bg-gray-50 [&>*:nth-child(even)]:dark:bg-white/5">
-                @foreach ($projects as $project)
-                    <div class="pt-2 pb-3 px-4 border-b">
-                        <div class="flex w-full justify-between">
-                            <h3 class="font-semibold mb-2">{{ $project->name }}</h3>
-                            <span
-                                class="text-sm {{ $project->status === 'in_progress' ? 'italic' : '' }}">{{ $project->readable_status }}</span>
+            <div class="px-6 lg:px-2">
+                <div
+                    class="grid rounded-xl overflow-hidden shadow-sm border bg-white dark:bg-gray-900  [&>*:nth-child(even)]:bg-gray-50 [&>*:nth-child(even)]:dark:bg-white/5">
+                    @foreach ($projects as $project)
+                        <div class="pt-2 pb-3 px-4 border-b">
+                            <div class="flex w-full justify-between">
+                                <h3 class="font-semibold mb-2">{{ $project->name }}</h3>
+                                <span
+                                    class="text-sm {{ $project->status === 'in_progress' ? 'italic' : '' }}">{{ $project->readable_status }}</span>
+                            </div>
+                            <p class="text-sm">{{ $project->description }}</p>
                         </div>
-                        <p class="text-sm">{{ $project->description }}</p>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
             {{-- @livewire('list-projects') --}}
             <div class="p-6 text-right">
@@ -66,27 +68,28 @@
                     like sharing-- From tech I'm into at the time to random thoughts.</p>
             </div>
 
-            <div
-                class="grid rounded-xl overflow-hidden shadow-sm border bg-white dark:bg-gray-900  [&>*:nth-child(even)]:bg-gray-50 [&>*:nth-child(even)]:dark:bg-white/5">
-                @foreach ($posts as $post)
-                    <div class="pt-2 pb-3 px-4 border-b">
-                        <div class="flex w-full justify-between">
-                            <h3 class="font-semibold mb-2">{{ $post->title }}</h3>
-                            <span
-                                class="text-sm {{ $post->created_at }}</span>
+            <div class="px-6 lg:px-2">
+                <div
+                    class="grid rounded-xl overflow-hidden shadow-sm border bg-white dark:bg-gray-900  [&>*:nth-child(even)]:bg-gray-50 [&>*:nth-child(even)]:dark:bg-white/5">
+                    @foreach ($posts as $post)
+                        <div class="pt-2 pb-3 px-4 border-b">
+                            <div class="flex w-full justify-between gap-4">
+                                <h3 class="font-semibold mb-2">{{ $post->title }}</h3>
+                                <span class="text-sm italic"> {{ $post->created_at->diffForHumans() }}</span>
+                            </div>
+                            <p class="text-sm">{{ $post->excerpt }}
+                            </p>
                         </div>
-                        <p class="text-sm">{{ $post->description }}
-                                </p>
-                        </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
-            {{-- @livewire('list-posts') --}}
-            <div class="p-6 text-right">
-                <a href="{{ route('post.index') }}">
-                    check out more posts
-                </a>
-            </div>
-        </section>
+    </div>
+    {{-- @livewire('list-posts') --}}
+    <div class="p-6 text-right">
+        <a href="{{ route('post.index') }}">
+            check out more posts
+        </a>
+    </div>
+    </section>
     </div>
 @endsection

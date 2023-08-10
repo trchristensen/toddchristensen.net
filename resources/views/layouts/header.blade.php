@@ -1,5 +1,5 @@
 <header>
-    <div class="flex flex-row justify-between items-center pt-16 pb-16 max-w-3xl mx-auto">
+    <div class="flex flex-row justify-between items-center pt-16 pb-16 px-6 max-w-3xl mx-auto">
         <div>
         </div>
         <nav>
