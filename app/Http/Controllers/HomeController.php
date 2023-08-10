@@ -10,13 +10,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        // get the latest 6 projects from the db
-        $projects = Project::latest()->take(6)->get();
-        $posts = Post::latest()->take(6)->get();
+        $projects = Project::orderBy('status', 'asc')->take(6)->get();
 
-        return view('welcome', [
-            'projects' => $projects,
-            'posts' => $posts
-        ]);
+        $posts = Post::get()->take(6);
+
+        return view('welcome', compact('projects', 'posts'));
     }
 }

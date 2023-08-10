@@ -49,6 +49,11 @@
                 @endforeach
             </div>
             {{-- @livewire('list-projects') --}}
+            <div class="p-6 text-right">
+                <a href="{{ route('project.index') }}">
+                    check out more projects
+                </a>
+            </div>
         </section>
 
         <section id="writing">
@@ -79,7 +84,7 @@
             {{-- @livewire('list-posts') --}}
             <div class="p-6 text-right">
                 <a href="{{ route('post.index') }}">
-                    view all posts
+                    check out more posts
                 </a>
             </div>
         </section>

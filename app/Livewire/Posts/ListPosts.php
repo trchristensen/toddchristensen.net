@@ -13,6 +13,7 @@ use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Concerns\InteractsWithTable;
 use Filament\Tables\Contracts\HasTable;
 use Filament\Tables\Table;
+use Illuminate\Database\Eloquent\Model;
 use Livewire\Component;
 
 
@@ -25,6 +26,7 @@ class ListPosts extends Component implements HasForms, HasTable
     {
         return $table
             ->query(Post::query())
+            ->striped()
             ->columns([
                 TextColumn::make('title')
                     ->searchable()
@@ -32,20 +34,9 @@ class ListPosts extends Component implements HasForms, HasTable
                 // TextColumn::make('excerpt')
                 // TextColumn::make('author.name')
                 //     ->label('Author')
-            ])
-            ->filters([
-                // ...
-            ])
-            ->actions([
-                ViewAction::make()
-                    ->size(ActionSize::Small)
-                    ->url(fn(Post $record): string => route('post.show', $record))
-
-            ])
-            ->bulkActions([
-                // ...
-            ]);
-        // ->defaultGroup('category');
+            ])->recordUrl(
+                fn(Model $record): string => route('post.show', ['post' => $record])
+            );
 
     }
 

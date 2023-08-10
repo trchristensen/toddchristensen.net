@@ -22,3 +22,4 @@ Route::get('blog', [PostController::class, 'index'])->name('post.index');
 Route::get('/blog/{post:slug}', [PostController::class, 'show'])->name('post.show');
 
 Route::get('projects', [ProjectController::class, 'index'])->name('project.index');
+Route::get('/projects/{project:slug}', [ProjectController::class, 'show'])->name('project.show');
