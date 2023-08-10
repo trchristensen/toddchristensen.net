@@ -18,27 +18,40 @@
 
     <div class="w-full max-w-3xl mx-auto pb-20">
         <section id="intro">
-            <div class="p-6">
-                <h1 class="font-bold text-4xl mb-8 tracking-tighter">Yo. I'm Todd Christensen. 👋🏽</h1>
-                <p class="prose prose-neutral dark:prose-invert mb-4">Welcome to my site! I'm an unemployed (by choice) web
-                    developer. Actually, I'm an aspring #solopreneuer. I enjoy
-                    pretending I'm going to launch one of my many side projects! Check out
-                    some of them below. I also write about anything I feel like writing about.</p>
-                <ul class="list-none">
-                    <li><a class="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
-                            rel="noopener noreferrer" target="_blank" href="https://x.com/christensen_tr"><svg width="12"
-                                height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
-                                    fill="currentColor"></path>
-                            </svg>
-                            <p class="h-7 ml-2">follow me on x</p>
-                        </a></li>
-                </ul>
+            <div class="p-6 grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="md:col-span-1">
+                    <div class="w-full mt-2 rounded-xl overflow-hidden">
+                        <img src="{{ 'static/meandfam-c.jpg' }}" alt="me and the fam" />
+                    </div>
+                </div>
+                <div class="md:col-span-2">
+                    <h1 class="font-bold text-4xl mb-8 tracking-tighter flex gap-4 flex-wrap"><span>Yo.</span> <span>I'm Todd
+                            Christensen.</span>
+                        <span>👋🏽</span>
+                    </h1>
+                    <p class="prose prose-neutral dark:prose-invert mb-4">Welcome to my site! I'm an unemployed (by choice)
+                        web
+                        developer. Actually, I'm an aspring #solopreneuer. I enjoy
+                        pretending I'm going to launch one of my many side projects! I've been living in the Philippines for
+                        5 years where I started a family. As of Sept 2023 I am back in the Bay Area, CA. Anyway, check out
+                        my stuff below!</p>
+                    <ul class="list-none">
+                        <li><a class="flex items-center hover:text-neutral-800 dark:hover:text-neutral-100 transition-all"
+                                rel="noopener noreferrer" target="_blank" href="https://x.com/christensen_tr"><svg
+                                    width="12" height="12" viewBox="0 0 12 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M2.07102 11.3494L0.963068 10.2415L9.2017 1.98864H2.83807L2.85227 0.454545H11.8438V9.46023H10.2955L10.3097 3.09659L2.07102 11.3494Z"
+                                        fill="currentColor"></path>
+                                </svg>
+                                <p class="h-7 ml-2">follow me on x</p>
+                            </a></li>
+                    </ul>
+                </div>
             </div>
-        </section id="projects">
+        </section>
 
-        <section>
+        <section id="projects">
             <div class="p-6">
                 <h2 class="font-bold text-2xl mb-8 tracking-tighter">Projects</h2>
                 <p class="prose prose-neutral dark:prose-invert mb-4">I'm currently working on a few projects that I'm
