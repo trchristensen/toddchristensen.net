@@ -31,6 +31,7 @@ class ListProjects extends Component implements HasForms, HasTable
         return $table
             ->query(Project::query())
             ->striped()
+            ->paginated(false)
             ->columns([
                 Stack::make([
 
@@ -41,7 +42,7 @@ class ListProjects extends Component implements HasForms, HasTable
                             'class' => 'mb-1',
                         ]),
                     Tables\Columns\TextColumn::make('description')
-                        ->searchable()
+                        // ->searchable()
                         ->words(50)
                         ->wrap()
                 ])
