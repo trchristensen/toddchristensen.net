@@ -5,6 +5,9 @@ namespace App\Livewire\projects;
 use App\Models\Project;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
+use Filament\Infolists\Components\Actions;
+use Filament\Infolists\Components\Actions\Action;
+use Filament\Infolists\Components\Grid;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Infolists\Components\View;
@@ -34,15 +37,31 @@ class ViewProject extends Component implements HasForms, HasInfolists
         return $infolist
             ->record($this->project)
             ->schema([
-                TextEntry::make('name')
-                    ->weight(FontWeight::SemiBold)
-                    ->label(''),
+                Grid::make([
+                    TextEntry::make('name')
+                        ->weight(FontWeight::SemiBold)
+                        ->label(''),
+                    // visit page button
+
+                ])
+                ,
                 ViewEntry::make('featured_image')
                     ->view('components.view-featured-image', [
                         'image' => $this->project->media,
                     ]),
                 TextEntry::make('description')
                     ->label(''),
+                Actions::make([
+                    Action::make('url')
+                        ->visible(fn() => $this->project->url)
+                        ->label('Visit')
+                        ->color('primary')
+                        ->openUrlInNewTab()
+                        ->icon('heroicon-m-link')
+                        ->action(function () {
+                            return redirect()->away($this->project->url);
+                        }),
+                ]),
             ]);
     }
 

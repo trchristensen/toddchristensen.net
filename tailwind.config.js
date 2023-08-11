@@ -1,10 +1,14 @@
 import preset from "./vendor/filament/support/tailwind.config.preset";
 
 const defaultTheme = require("tailwindcss/defaultTheme");
-
+const colors = require("tailwindcss/colors");
 module.exports = {
     theme: {
         extend: {
+            colors: {
+                ...colors,
+                primary: colors.blue,
+            },
             fontFamily: {
                 sans: ["Inter var", ...defaultTheme.fontFamily.sans],
             },
