@@ -34,7 +34,7 @@ class ViewPost extends Component implements HasForms, HasInfolists
                     ->view('components.view-featured-image', [
                         'image' => $this->post->media,
                     ]),
-                TextEntry::make('content'),
+                TextEntry::make('body'),
 
             ]);
     }
