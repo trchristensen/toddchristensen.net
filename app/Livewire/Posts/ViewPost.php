@@ -35,6 +35,10 @@ class ViewPost extends Component implements HasForms, HasInfolists
                         'image' => $this->post->media,
                     ]),
                 TextEntry::make('body'),
+                TextEntry::make('tags.name')
+                    ->label('Tags')
+                    ->badge()
+                    ->separator(','),
 
             ]);
     }

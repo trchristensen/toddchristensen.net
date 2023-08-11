@@ -38,4 +38,10 @@ class Project extends Model implements HasMedia
         return $this->statuses[$this->status] ?? 'Unknown Status';
     }
 
+    public function tags()
+    {
+        return $this->morphToMany('App\Models\Tag', 'taggable');
+    }
+
+
 }
