@@ -14,6 +14,9 @@
         <title>{{ config('app.name') }}</title>
     @endif
 
+    <meta name="description"
+        content="This is the online web presence of Todd Christensen. No, not the great, former NFL player for the Raiders. This is the great web developer and solopreneuer, Todd Christensen, from Foster City, CA.">
+
     <link rel="shortcut icon" href="{{ url(asset('favicon.ico')) }}">
 
 
