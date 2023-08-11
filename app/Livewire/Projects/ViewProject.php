@@ -38,7 +38,9 @@ class ViewProject extends Component implements HasForms, HasInfolists
                     ->weight(FontWeight::SemiBold)
                     ->label(''),
                 ViewEntry::make('featured_image')
-                    ->view('livewire.projects.view-project-image'),
+                    ->view('components.view-featured-image', [
+                        'image' => $this->project->media,
+                    ]),
                 TextEntry::make('description')
                     ->label(''),
             ]);

@@ -5,6 +5,7 @@ namespace App\Livewire\Posts;
 use Filament\Forms\Concerns\InteractsWithForms;
 use Filament\Forms\Contracts\HasForms;
 use Filament\Infolists\Components\TextEntry;
+use Filament\Infolists\Components\ViewEntry;
 use Filament\Infolists\Concerns\InteractsWithInfolists;
 use Filament\Infolists\Contracts\HasInfolists;
 use Filament\Infolists\Infolist;
@@ -29,6 +30,12 @@ class ViewPost extends Component implements HasForms, HasInfolists
             ->record($this->post)
             ->schema([
                 TextEntry::make('title'),
+                ViewEntry::make('featured_image')
+                    ->view('components.view-featured-image', [
+                        'image' => $this->post->media,
+                    ]),
+                TextEntry::make('content'),
+
             ]);
     }
 

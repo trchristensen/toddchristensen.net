@@ -63,15 +63,17 @@
                 <div
                     class="grid rounded-xl overflow-hidden shadow-sm border bg-white dark:bg-gray-900  [&>*:nth-child(even)]:bg-gray-50 [&>*:nth-child(even)]:dark:bg-white/5">
                     @foreach ($projects as $project)
-                        <div class="px-4 pt-2 pb-3 border-b">
-                            <div class="flex justify-between w-full">
-                                <h3 class="mb-2 font-semibold">{{ $project->name }}</h3>
-                                <span
-                                    class="text-sm {{ $project->status === 'in_progress' ? 'italic' : '' }}">{{ $project->readable_status }}</span>
+                        <a wire:navigate href="{{ route('project.show', compact('project')) }}">
+                            <div class="px-4 pt-2 pb-3 border-b">
+                                <div class="flex justify-between w-full">
+                                    <h3 class="mb-2 font-semibold">{{ $project->name }}</h3>
+                                    <span
+                                        class="text-sm {{ $project->status === 'in_progress' ? 'italic' : '' }}">{{ $project->readable_status }}</span>
+                                </div>
+                                <p class="text-sm">{{ $project->description }}</p>
                             </div>
-                            <p class="text-sm">{{ $project->description }}</p>
-                        </div>
                     @endforeach
+                    </a>
                 </div>
             </div>
             {{-- @livewire('list-projects') --}}
@@ -96,14 +98,16 @@
                 <div
                     class="grid rounded-xl overflow-hidden shadow-sm border bg-white dark:bg-gray-900  [&>*:nth-child(even)]:bg-gray-50 [&>*:nth-child(even)]:dark:bg-white/5">
                     @foreach ($posts as $post)
-                        <div class="px-4 pt-2 pb-3 border-b">
-                            <div class="flex justify-between w-full gap-4">
-                                <h3 class="mb-2 font-semibold">{{ $post->title }}</h3>
-                                <span class="text-sm italic"> {{ $post->created_at->diffForHumans() }}</span>
+                        <a wire:navigate href="{{ route('post.show', compact('post')) }}">
+                            <div class="px-4 pt-2 pb-3 border-b">
+                                <div class="flex justify-between w-full gap-4">
+                                    <h3 class="mb-2 font-semibold">{{ $post->title }}</h3>
+                                    <span class="text-sm italic"> {{ $post->created_at->diffForHumans() }}</span>
+                                </div>
+                                <p class="text-sm">{{ $post->excerpt }}
+                                </p>
                             </div>
-                            <p class="text-sm">{{ $post->excerpt }}
-                            </p>
-                        </div>
+                        </a>
                     @endforeach
                 </div>
             </div>
