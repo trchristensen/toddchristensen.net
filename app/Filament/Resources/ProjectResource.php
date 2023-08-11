@@ -5,7 +5,9 @@ namespace App\Filament\Resources;
 use App\Filament\Resources\ProjectResource\Pages;
 use App\Filament\Resources\ProjectResource\RelationManagers;
 use App\Models\Project;
+use App\Models\Tag;
 use Filament\Forms;
+use Filament\Forms\Components\Select;
 use Filament\Forms\Components\SpatieMediaLibraryFileUpload;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
@@ -50,7 +52,21 @@ class ProjectResource extends Resource
                     ->disk('spaces')
                     ->collection('featured_image')
                     ->image()
-                    ->responsiveImages()
+                    ->responsiveImages(),
+                Select::make('tags')
+                    ->multiple()
+                    ->maxItems(5)
+                    ->relationship('tags', 'name')
+                    ->options(Tag::all()->pluck('name', 'id')->toArray())
+                    ->placeholder('Select or search Tags')
+                    ->searchable()
+                    ->createOptionForm([
+                        Forms\Components\TextInput::make('name')
+                            ->required(),
+                        Forms\Components\TextInput::make('slug')
+                            ->required()
+                            ->unique('tags', 'slug')
+                    ]),
             ]);
     }
 

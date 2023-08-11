@@ -17,6 +17,7 @@ use Filament\Infolists\Contracts\HasInfolists;
 use Filament\Infolists\Infolist;
 use Filament\Support\Enums\FontWeight;
 use Filament\Tables\Columns\TextColumn\TextColumnSize;
+use Illuminate\Support\Facades\Log;
 use Livewire\Component;
 
 class ViewProject extends Component implements HasForms, HasInfolists
@@ -51,6 +52,10 @@ class ViewProject extends Component implements HasForms, HasInfolists
                     ]),
                 TextEntry::make('description')
                     ->label(''),
+                TextEntry::make('tags.name')
+                    ->label('Tags')
+                    ->badge()
+                    ->separator(','),
                 Actions::make([
                     Action::make('url')
                         ->visible(fn() => $this->project->url)
