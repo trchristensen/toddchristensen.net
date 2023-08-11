@@ -21,7 +21,7 @@
             <div class="grid grid-cols-1 gap-4 p-6 md:grid-cols-3">
                 <div class="md:col-span-1">
                     <div class="w-full mt-2 overflow-hidden rounded-xl">
-                        <img src="{{ asset('meandfam-c.jpg') }}" alt="me and the fam" />
+                        <img src="https://cdn.adopt.com.ph/toddchristensen/static/meandfam-c.jpg" alt="me and the fam" />
                     </div>
                 </div>
                 <div class="md:col-span-2">
