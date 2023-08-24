@@ -11,8 +11,13 @@ class Tag extends Model
 
     protected $fillable = ['name', 'slug'];
 
-    public function taggables()
+    public function taggablePosts()
     {
-        return $this->morphedByMany('App\Models\YourModel', 'taggable');
+        return $this->morphedByMany('App\Models\Post', 'taggable');
+    }
+
+    public function taggableProducts()
+    {
+        return $this->morphedByMany('App\Models\Project', 'taggable');
     }
 }

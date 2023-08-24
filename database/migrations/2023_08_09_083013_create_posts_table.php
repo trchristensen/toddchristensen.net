@@ -19,7 +19,7 @@ return new class extends Migration {
             $table->text('excerpt')->nullable();
             $table->text('body');
             // we need to store the user id of the author
-            $table->foreignId('user_id')->constrained();
+            // $table->foreignId('user_id')->constrained();
         });
     }
 

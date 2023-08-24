@@ -30,11 +30,14 @@ class ListProjects extends Component implements HasForms, HasTable
     {
         return $table
             ->query(Project::query())
+            ->groups([
+                Group::make('readable_status')
+                    ->label('Status')
+            ])
             ->striped()
             ->paginated(false)
             ->columns([
                 Stack::make([
-
                     Tables\Columns\TextColumn::make('name')
                         // ->searchable()
                         ->weight(FontWeight::SemiBold)
@@ -50,7 +53,7 @@ class ListProjects extends Component implements HasForms, HasTable
             ->recordUrl(
                 fn(Model $record): string => route('project.show', ['project' => $record]),
             )
-            ->defaultGroup('status');
+            ->defaultGroup('readable_status');
     }
 
     public function render(): View
